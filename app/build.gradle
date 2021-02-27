@@ -1,0 +1,34 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply from: rootProject.file('dependencies.gradle')
+apply from: rootProject.file('default-config.gradle')
+
+dependencies {
+    implementation(project(":core"))
+    implementation deps.kotlin.coroutines
+    implementation deps.kotlin.serialization
+    implementation deps.core_ktx
+    implementation deps.fragment_ktx
+    implementation deps.appcompat
+    implementation deps.material
+    implementation deps.constraintlayout
+    implementation deps.lifecycle.viewmodel
+    implementation deps.lifecycle.livedata
+    implementation deps.logging_interceptor
+
+    // Navigation
+    implementation deps.navigation.fragment
+    implementation deps.navigation.ui
+    implementation deps.navigation.feature_module
+
+    // Dagger
+    implementation deps.dagger.dagger
+    kapt deps.dagger.compiler
+
+    testImplementation testDependencies
+    androidTestImplementation androidTestDependenvies
+}
