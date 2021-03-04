@@ -9,7 +9,7 @@ import od.konstantin.core.prefs.delegates.ExamPreference
 import javax.inject.Inject
 
 @AppScope
-class UserPrefs @Inject constructor(
+class UserPrefs constructor(
     context: Context,
 ) : SharedPreferences by context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE) {
 
