@@ -17,4 +17,8 @@
     <string name="pharmacy">Pharmacy</string>
     <string name="krok_1">Krok 1</string>
     <string name="krok_2">Krok 2</string>
+
+    <string name="need_select_specialization">Please, select your specialization</string>
+    <string name="need_select_exam">Please, select exam</string>
+    <string name="need_select_exam_language">Please, select exam language</string>
 </resources>

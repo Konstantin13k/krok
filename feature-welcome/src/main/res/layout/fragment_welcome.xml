@@ -34,14 +34,17 @@
         app:singleSelection="true">
 
         <Button
+            android:id="@+id/medicine_specialization_button"
             style="@style/button_style"
             android:text="@string/medicine" />
 
         <Button
+            android:id="@+id/stomatology_specialization_button"
             style="@style/button_style"
             android:text="@string/stomatology" />
 
         <Button
+            android:id="@+id/pharmacy_specialization_button"
             style="@style/button_style"
             android:text="@string/pharmacy" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -65,10 +68,12 @@
         app:singleSelection="true">
 
         <Button
+            android:id="@+id/krok_1_button"
             style="@style/button_style"
             android:text="@string/krok_1" />
 
         <Button
+            android:id="@+id/krok_2_button"
             style="@style/button_style"
             android:text="@string/krok_2" />
 
@@ -93,14 +98,17 @@
         app:singleSelection="true">
 
         <Button
+            android:id="@+id/ukrainian_language_button"
             style="@style/button_style"
             android:text="@string/ukrainian_lang" />
 
         <Button
+            android:id="@+id/russian_language_button"
             style="@style/button_style"
             android:text="@string/russian_lang" />
 
         <Button
+            android:id="@+id/english_language_button"
             style="@style/button_style"
             android:text="@string/english_lang" />
 

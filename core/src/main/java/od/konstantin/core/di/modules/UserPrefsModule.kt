@@ -9,8 +9,8 @@ import od.konstantin.core.prefs.UserPrefs
 @Module
 class UserPrefsModule {
 
-    @Provides
     @AppScope
+    @Provides
     fun provideUserPrefs(context: Context): UserPrefs {
         return UserPrefs(context)
     }

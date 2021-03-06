@@ -6,10 +6,9 @@ import od.konstantin.core.di.AppScope
 import od.konstantin.core.prefs.delegates.CategoryPreference
 import od.konstantin.core.prefs.delegates.ExamLanguagePreference
 import od.konstantin.core.prefs.delegates.ExamPreference
-import javax.inject.Inject
 
 @AppScope
-class UserPrefs @Inject constructor(
+class UserPrefs internal constructor(
     context: Context,
 ) : SharedPreferences by context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE) {
 
@@ -29,4 +28,8 @@ class UserPrefs @Inject constructor(
     )
 
     fun deleteAllPrefs() = this.edit().clear().apply()
+
+    fun isNeedToFillProfile(): Boolean {
+        return userCategory == null || userExam == null || examLanguage == null
+    }
 }
