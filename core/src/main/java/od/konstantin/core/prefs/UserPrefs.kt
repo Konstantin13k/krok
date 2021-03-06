@@ -1,35 +1,20 @@
 package od.konstantin.core.prefs
 
-import android.content.Context
-import android.content.SharedPreferences
-import od.konstantin.core.di.AppScope
-import od.konstantin.core.prefs.delegates.CategoryPreference
-import od.konstantin.core.prefs.delegates.ExamLanguagePreference
-import od.konstantin.core.prefs.delegates.ExamPreference
+import od.konstantin.core.exam.Category
+import od.konstantin.core.exam.Exam
+import od.konstantin.core.exam.ExamLanguage
 
-@AppScope
-class UserPrefs internal constructor(
-    context: Context,
-) : SharedPreferences by context.getSharedPreferences("user_prefs", Context.MODE_PRIVATE) {
+interface UserPrefs {
 
-    var userCategory by CategoryPreference(
-        key = "user_category",
-        defValue = null
-    )
+    var userCategory: Category?
 
-    var userExam by ExamPreference(
-        key = "user_exam",
-        defValue = null
-    )
+    var userExam: Exam?
 
-    var examLanguage by ExamLanguagePreference(
-        key = "exam_language",
-        defValue = null
-    )
+    var examLanguage: ExamLanguage?
 
-    fun deleteAllPrefs() = this.edit().clear().apply()
+    fun deleteAllPrefs()
+}
 
-    fun isNeedToFillProfile(): Boolean {
-        return userCategory == null || userExam == null || examLanguage == null
-    }
+fun UserPrefs.isNeedToFillProfile(): Boolean {
+    return userCategory == null || userExam == null || examLanguage == null
 }

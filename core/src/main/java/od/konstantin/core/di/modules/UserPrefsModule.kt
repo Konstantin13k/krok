@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.Provides
 import od.konstantin.core.di.AppScope
 import od.konstantin.core.prefs.UserPrefs
+import od.konstantin.core.prefs.UserPrefsImpl
 
 @Module
 class UserPrefsModule {
@@ -12,6 +13,6 @@ class UserPrefsModule {
     @AppScope
     @Provides
     fun provideUserPrefs(context: Context): UserPrefs {
-        return UserPrefs(context)
+        return UserPrefsImpl(context)
     }
 }

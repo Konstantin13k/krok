@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import od.konstantin.core.RootGraphDirections
 import od.konstantin.core.di.CoreComponentHolder
+import od.konstantin.core.prefs.isNeedToFillProfile
 import od.konstantin.krok.R
 
 class SplashFragment : Fragment(R.layout.fragment_splash) {
