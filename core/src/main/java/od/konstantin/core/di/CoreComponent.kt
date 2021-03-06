@@ -3,10 +3,11 @@ package od.konstantin.core.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
+import od.konstantin.core.di.modules.UserPrefsModule
 import od.konstantin.core.prefs.UserPrefs
 
 @AppScope
-@Component
+@Component(modules = [UserPrefsModule::class])
 interface CoreComponent {
 
     @Component.Factory
@@ -15,5 +16,5 @@ interface CoreComponent {
         fun create(@BindsInstance context: Context): CoreComponent
     }
 
-//    fun provideUserPrefs(): UserPrefs
+    fun provideUserPrefs(): UserPrefs
 }
