@@ -2,11 +2,11 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_graph"
-    app:startDestination="@navigation/home_flow">
+    app:startDestination="@id/homeFragment2">
 
-    <include app:graph="@navigation/home_flow" />
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="od.konstantin.feature_home.ui.HomeFragment"
+        android:label="HomeFragment" />
 
-    <include app:graph="@navigation/favorite_flow" />
-
-    <include app:graph="@navigation/profile_flow" />
 </navigation>
