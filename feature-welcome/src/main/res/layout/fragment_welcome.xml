@@ -122,7 +122,6 @@
         android:layout_marginBottom="@dimen/default_margin"
         android:text="@string/confirm"
         android:textColor="@color/white"
-        app:backgroundTint="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

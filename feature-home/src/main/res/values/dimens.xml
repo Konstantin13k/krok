@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="test_type_title_size">24sp</dimen>
+    <dimen name="test_type_title_margin_start">12dp</dimen>
+    <dimen name="test_type_title_default_margin">16dp</dimen>
+    <dimen name="test_type_description_margin_start">20dp</dimen>
+    <dimen name="test_type_description_margin_top">4dp</dimen>
+    <dimen name="test_type_description_default_margin">16dp</dimen>
+    <dimen name="test_type_description_size">14sp</dimen>
+    <dimen name="test_image_size">100dp</dimen>
+    <dimen name="test_image_default_margin">12dp</dimen>
+    <dimen name="test_card_default_margin">16dp</dimen>
+    <dimen name="test_card_corner_radius">10dp</dimen>
+    <dimen name="test_card_margin_top">4dp</dimen>
+    <dimen name="exam_label_size">24sp</dimen>
+    <dimen name="exam_label_vertical_padding">12dp</dimen>
+    <dimen name="exam_label_horizontal_padding">24dp</dimen>
+    <dimen name="test_types_bottom_padding">8dp</dimen>
+</resources>
