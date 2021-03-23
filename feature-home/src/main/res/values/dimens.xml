@@ -7,13 +7,13 @@
     <dimen name="test_type_description_margin_top">4dp</dimen>
     <dimen name="test_type_description_default_margin">16dp</dimen>
     <dimen name="test_type_description_size">14sp</dimen>
-    <dimen name="test_image_size">100dp</dimen>
+    <dimen name="test_image_size">80dp</dimen>
     <dimen name="test_image_default_margin">12dp</dimen>
     <dimen name="test_card_default_margin">16dp</dimen>
     <dimen name="test_card_corner_radius">10dp</dimen>
-    <dimen name="test_card_margin_top">4dp</dimen>
+    <dimen name="test_card_margin_top">8dp</dimen>
     <dimen name="exam_label_size">24sp</dimen>
     <dimen name="exam_label_vertical_padding">12dp</dimen>
     <dimen name="exam_label_horizontal_padding">24dp</dimen>
-    <dimen name="test_types_bottom_padding">8dp</dimen>
+    <dimen name="test_types_padding">16dp</dimen>
 </resources>

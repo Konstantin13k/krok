@@ -6,34 +6,19 @@
     android:layout_height="match_parent"
     android:background="@color/light_grey">
 
-    <TextView
-        android:id="@+id/exam_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/header_background"
-        android:paddingStart="@dimen/exam_label_horizontal_padding"
-        android:paddingTop="@dimen/exam_label_vertical_padding"
-        android:paddingEnd="@dimen/exam_label_horizontal_padding"
-        android:paddingBottom="@dimen/exam_label_vertical_padding"
-        android:textColor="@color/white"
-        android:textSize="@dimen/exam_label_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Krok 1 Pharmacy" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/test_types"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clipToPadding="false"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/test_types_bottom_padding"
+        android:paddingTop="@dimen/test_types_padding"
+        android:paddingBottom="@dimen/test_types_padding"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/exam_label"
+        app:layout_constraintTop_toTopOf="parent"
         tools:itemCount="4"
         tools:listitem="@layout/view_holder_test" />
 
