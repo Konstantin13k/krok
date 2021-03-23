@@ -4,4 +4,5 @@
     <dimen name="text_size">18sp</dimen>
     <dimen name="default_small_margin">8dp</dimen>
     <dimen name="confirm_button_margin">40dp</dimen>
+    <dimen name="krok_image_size">100dp</dimen>
 </resources>
