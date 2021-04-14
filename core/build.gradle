@@ -28,6 +28,10 @@ dependencies {
     implementation deps.dagger.dagger
     kapt deps.dagger.compiler
 
+    // Retrofit
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.kotlin_converter
+
     testImplementation testDependencies
     androidTestImplementation androidTestDependenvies
 }
