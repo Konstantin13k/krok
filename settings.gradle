@@ -1,3 +1,4 @@
+include ':feature-booklets'
 include ':feature-mainscreen'
 include ':feature-home'
 include ':feature-welcome'
