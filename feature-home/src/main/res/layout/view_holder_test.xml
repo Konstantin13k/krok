@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/test_card_default_margin"
+    android:layout_marginTop="@dimen/test_card_margin_top"
+    android:layout_marginEnd="@dimen/test_card_default_margin"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="@dimen/test_card_corner_radius"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/test_type_image"
+            android:layout_width="@dimen/test_image_size"
+            android:layout_height="@dimen/test_image_size"
+            android:layout_marginStart="@dimen/test_image_default_margin"
+            android:layout_marginTop="@dimen/test_image_default_margin"
+            android:layout_marginBottom="@dimen/test_image_default_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/img_exam_green" />
+
+        <TextView
+            android:id="@+id/test_type_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/test_type_title_margin_start"
+            android:layout_marginTop="@dimen/test_type_title_default_margin"
+            android:layout_marginEnd="@dimen/test_type_title_default_margin"
+            android:textColor="@color/dark_grey_title"
+            android:textSize="@dimen/test_type_title_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/test_type_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Booklets" />
+
+        <TextView
+            android:id="@+id/test_type_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/test_type_description_margin_start"
+            android:layout_marginTop="@dimen/test_type_description_margin_top"
+            android:layout_marginEnd="@dimen/test_type_description_default_margin"
+            android:textColor="@color/dark_grey_description"
+            android:textSize="@dimen/test_type_description_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/test_type_image"
+            app:layout_constraintTop_toBottomOf="@id/test_type_title"
+            tools:text="@string/test_type_booklets_description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

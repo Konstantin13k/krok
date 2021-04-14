@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_menu_label">Home</string>
+    <string name="favorite_menu_label">Favorite</string>
+    <string name="profile_menu_label">Profile</string>
+</resources>

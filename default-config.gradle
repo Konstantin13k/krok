@@ -1,15 +1,14 @@
-apply plugin: "androidx.navigation.safeargs.kotlin"
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "od.konstantin.krok"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+
+        buildConfigField "String", "BASE_URL", krok_server_url
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
