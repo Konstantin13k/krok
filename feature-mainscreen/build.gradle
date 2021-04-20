@@ -9,7 +9,6 @@ apply from: rootProject.file('default-config.gradle')
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":feature-home"))
     implementation deps.kotlin.coroutines
     implementation deps.core_ktx
     implementation deps.fragment_ktx

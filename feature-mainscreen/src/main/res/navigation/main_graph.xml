@@ -7,6 +7,16 @@
     <fragment
         android:id="@+id/homeFragment2"
         android:name="od.konstantin.feature_home.ui.HomeFragment"
-        android:label="HomeFragment" />
+        android:label="HomeFragment">
+        <action
+            android:id="@+id/action_homeFragment2_to_bookletsFragment"
+            app:destination="@id/bookletsFragment"
+            app:popUpTo="@id/homeFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookletsFragment"
+        android:name="od.konstantin.feature_booklets.ui.BookletsFragment"
+        android:label="BookletsFragment" />
 
 </navigation>

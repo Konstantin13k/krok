@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.flow.collect
-import od.konstantin.core.RootGraphDirections
 import od.konstantin.core.di.CoreComponentHolder
 import od.konstantin.core.util.extensions.viewBindings
 import od.konstantin.feature_welcome.R
@@ -81,7 +80,7 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     }
 
     private fun navigateToMainScreen() {
-        findNavController().navigate(RootGraphDirections.actionMainscreenFlow())
+        findNavController().navigate(WelcomeFragmentDirections.actionWelcomeFragmentToMainScreenFragment())
     }
 
     private fun showToast(text: String) {

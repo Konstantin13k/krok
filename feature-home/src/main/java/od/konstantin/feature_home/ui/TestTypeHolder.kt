@@ -40,7 +40,8 @@ class TestTypeHolder private constructor(private val binding: ViewHolderTestBind
         with(binding) {
             testTypeImage.setImageResource(R.drawable.img_exam_yellow)
             testTypeTitle.text = context.getString(R.string.test_type_difficult_questions_title)
-            testTypeDescription.text = context.getString(R.string.test_type_difficult_questions_description)
+            testTypeDescription.text =
+                context.getString(R.string.test_type_difficult_questions_description)
         }
     }
 
@@ -48,7 +49,8 @@ class TestTypeHolder private constructor(private val binding: ViewHolderTestBind
         with(binding) {
             testTypeImage.setImageResource(R.drawable.img_exam_purple)
             testTypeTitle.text = context.getString(R.string.test_type_unfinished_tests_title)
-            testTypeDescription.text = context.getString(R.string.test_type_unfinished_tests_description)
+            testTypeDescription.text =
+                context.getString(R.string.test_type_unfinished_tests_description)
         }
     }
 

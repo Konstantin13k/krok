@@ -8,7 +8,10 @@ apply from: rootProject.file('dependencies.gradle')
 apply from: rootProject.file('default-config.gradle')
 
 dependencies {
+    implementation(project(":common-ui"))
     implementation(project(":core"))
+    implementation(project(":core-navigation"))
+    implementation(project(":feature-mainscreen"))
     implementation deps.kotlin.coroutines
     implementation deps.core_ktx
     implementation deps.fragment_ktx

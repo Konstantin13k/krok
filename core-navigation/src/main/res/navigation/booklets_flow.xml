@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/booklets_flow"
+    app:startDestination="@id/booklets_fragment">
+
+    <fragment
+        android:id="@+id/booklets_fragment"
+        android:name="od.konstantin.feature_booklets.ui.BookletsFragment"
+        android:label="Booklets" />
+
+</navigation>

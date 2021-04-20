@@ -5,7 +5,8 @@ import androidx.recyclerview.widget.RecyclerView
 import od.konstantin.feature_home.TestType
 import od.konstantin.feature_home.ui.TestTypeHolder
 
-class TestTypeAdapter : RecyclerView.Adapter<TestTypeHolder>() {
+class TestTypeAdapter(private val onClick: (TestType) -> Unit) :
+    RecyclerView.Adapter<TestTypeHolder>() {
 
     private val testTypes = TestType.getList()
 
@@ -15,6 +16,10 @@ class TestTypeAdapter : RecyclerView.Adapter<TestTypeHolder>() {
 
     override fun onBindViewHolder(holder: TestTypeHolder, position: Int) {
         holder.bind(testTypes[position])
+        val testType = testTypes[position]
+        holder.itemView.setOnClickListener {
+            onClick(testType)
+        }
     }
 
     override fun getItemCount(): Int = testTypes.size

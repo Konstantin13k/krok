@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Krok">
-        <activity android:name="od.konstantin.krok.ui.MainActivity">
+        <activity android:name="od.konstantin.krok.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
