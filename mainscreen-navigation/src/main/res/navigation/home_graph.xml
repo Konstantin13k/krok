@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/main_graph"
-    app:startDestination="@id/homeFragment2">
+    android:id="@+id/home_graph"
+    app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/homeFragment2"
+        android:id="@+id/homeFragment"
         android:name="od.konstantin.feature_home.ui.HomeFragment"
         android:label="HomeFragment">
         <action
-            android:id="@+id/action_homeFragment2_to_bookletsFragment"
+            android:id="@+id/action_homeFragment_to_bookletsFragment"
             app:destination="@id/bookletsFragment"
-            app:popUpTo="@id/homeFragment2" />
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 
     <fragment

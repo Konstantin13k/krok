@@ -8,7 +8,6 @@ import androidx.fragment.app.viewModels
 import od.konstantin.core.di.CoreComponentHolder
 import od.konstantin.core.util.extensions.viewBindings
 import od.konstantin.feature_booklets.R
-import od.konstantin.feature_booklets.data.models.BookletInfo
 import od.konstantin.feature_booklets.databinding.FragmentBookletsBinding
 import od.konstantin.feature_booklets.di.DaggerBookletsComponent
 import od.konstantin.feature_booklets.ui.adapters.BookletInfoAdapter

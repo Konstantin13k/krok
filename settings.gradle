@@ -1,7 +1,7 @@
 include ':common-ui'
 include ':core-navigation'
 include ':feature-booklets'
-include ':feature-mainscreen'
+include ':mainscreen-navigation'
 include ':feature-home'
 include ':feature-welcome'
 include ':core'

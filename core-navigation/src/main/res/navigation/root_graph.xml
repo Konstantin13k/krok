@@ -13,7 +13,8 @@
             app:destination="@id/welcome_fragment" />
         <action
             android:id="@+id/action_splash_fragment_to_main_screen_fragment"
-            app:destination="@id/main_screen_fragment" />
+            app:destination="@id/main_screen_fragment"
+            app:popUpTo="@id/root_graph" />
     </fragment>
 
     <fragment
@@ -31,11 +32,4 @@
         android:id="@+id/main_screen_fragment"
         android:name="od.konstantin.feature_mainscreen.ui.MainScreenFragment" />
 
-    <include app:graph="@navigation/booklets_flow" />
-
-    <action
-        android:id="@+id/action_to_booklets_flow"
-        app:destination="@id/booklets_flow"
-        app:enterAnim="@anim/nav_default_enter_anim"
-        app:exitAnim="@anim/nav_default_exit_anim" />
 </navigation>

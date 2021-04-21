@@ -11,7 +11,7 @@ dependencies {
     implementation(project(":common-ui"))
     implementation(project(":core"))
     implementation(project(":core-navigation"))
-    implementation(project(":feature-mainscreen"))
+    implementation(project(':mainscreen-navigation'))
     implementation deps.kotlin.coroutines
     implementation deps.core_ktx
     implementation deps.fragment_ktx
