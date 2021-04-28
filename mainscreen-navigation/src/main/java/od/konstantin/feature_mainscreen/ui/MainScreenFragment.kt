@@ -3,21 +3,46 @@ package od.konstantin.feature_mainscreen.ui
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import androidx.fragment.app.Fragment
-import od.konstantin.core.util.extensions.viewBindings
-import od.konstantin.core_navigation.utils.extensions.setupWithNavController
+import od.konstantin.core.di.CoreComponentHolder
 import od.konstantin.feature_mainscreen.R
 import od.konstantin.feature_mainscreen.databinding.FragmentMainBinding
+import od.konstantin.feature_mainscreen.di.DaggerMainScreenComponent
+import od.konstantin.feature_mainscreen.di.MainScreenModule
+import od.konstantin.krok.ui.base.BaseFragment
+import od.konstantin.krok.ui.base.command.EmptyCommand
+import od.konstantin.krok.ui.extensions.setupWithNavController
+import od.konstantin.krok.ui.extensions.viewBindings
 
-class MainScreenFragment : Fragment(R.layout.fragment_main) {
+class MainScreenFragment :
+    BaseFragment<MainScreenState, EmptyCommand, MainScreenViewModel>(
+        R.layout.fragment_main
+    ) {
 
     private val binding by viewBindings { FragmentMainBinding.bind(it) }
 
+    override fun onInitDependencyInjection() {
+        DaggerMainScreenComponent.factory().create(
+            CoreComponentHolder.coreComponent,
+            MainScreenModule(this)
+        ).inject(this)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         if (savedInstanceState == null) {
             setupBottomNavBar()
+        }
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        setupBottomNavBar()
+    }
+
+    override fun onRenderView(state: MainScreenState) {
+        binding.mainBottomNavigation.isVisible = when (state) {
+            MainScreenState.NavigationScreen -> true
+            MainScreenState.FullScreen -> false
         }
     }
 
@@ -33,12 +58,7 @@ class MainScreenFragment : Fragment(R.layout.fragment_main) {
         )
 
         controller.observe(viewLifecycleOwner, { navController ->
-            navController.addOnDestinationChangedListener { _, destination, _ ->
-                when (destination.id) {
-                    R.id.homeFragment -> bottomNavView.isVisible = true
-                    else -> bottomNavView.isVisible = false
-                }
-            }
+            viewModel.navigationControllerChanged(navController)
         })
     }
 }

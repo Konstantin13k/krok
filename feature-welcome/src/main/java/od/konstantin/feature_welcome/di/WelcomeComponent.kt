@@ -4,21 +4,18 @@ import dagger.Component
 import od.konstantin.core.di.CoreComponent
 import od.konstantin.core.di.FeatureScope
 import od.konstantin.feature_welcome.ui.WelcomeFragment
-import od.konstantin.feature_welcome.ui.WelcomeFragmentViewModel
-import od.konstantin.feature_welcome.ui.WelcomeFragmentViewModelFactory
 
 @FeatureScope
-@Component(dependencies = [CoreComponent::class])
+@Component(dependencies = [CoreComponent::class], modules = [WelcomeModule::class])
 interface WelcomeComponent {
 
     @Component.Factory
     interface Factory {
-        fun create(coreComponent: CoreComponent): WelcomeComponent
+        fun create(
+            coreComponent: CoreComponent,
+            welcomeModule: WelcomeModule
+        ): WelcomeComponent
     }
-
-    fun viewModelFactory(): WelcomeFragmentViewModelFactory
-
-    fun viewModel(): WelcomeFragmentViewModel
 
     fun inject(fragment: WelcomeFragment)
 }

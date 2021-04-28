@@ -1,8 +1,9 @@
 package od.konstantin.feature_booklets.ui
 
-import androidx.lifecycle.ViewModel
-import javax.inject.Inject
+import od.konstantin.krok.ui.base.BaseViewModel
+import od.konstantin.krok.ui.base.command.EmptyCommand
+import od.konstantin.krok.ui.base.screenstate.EmptyState
 
-class BookletsFragmentViewModel @Inject constructor() : ViewModel() {
+class BookletsFragmentViewModel : BaseViewModel<EmptyState, EmptyCommand>(EmptyState) {
 
 }

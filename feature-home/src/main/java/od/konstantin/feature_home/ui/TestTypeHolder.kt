@@ -3,7 +3,7 @@ package od.konstantin.feature_home.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import od.konstantin.core.util.extensions.context
+import od.konstantin.krok.ui.extensions.context
 import od.konstantin.feature_home.R
 import od.konstantin.feature_home.TestType
 import od.konstantin.feature_home.databinding.ViewHolderTestBinding

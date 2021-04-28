@@ -1,4 +1,4 @@
-package od.konstantin.core.util.extensions
+package od.konstantin.krok.ui.extensions
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView

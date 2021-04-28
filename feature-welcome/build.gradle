@@ -10,6 +10,7 @@ apply from: rootProject.file('default-config.gradle')
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":common-ui"))
     implementation(project(":core-navigation"))
     implementation deps.kotlin.coroutines
     implementation deps.kotlin.serialization
@@ -19,7 +20,6 @@ dependencies {
     implementation deps.material
     implementation deps.constraintlayout
     implementation deps.lifecycle.viewmodel
-    implementation deps.lifecycle.livedata
     implementation deps.logging_interceptor
 
     // Navigation

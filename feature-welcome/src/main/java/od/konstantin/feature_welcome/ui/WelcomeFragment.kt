@@ -1,65 +1,38 @@
 package od.konstantin.feature_welcome.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import kotlinx.coroutines.flow.collect
 import od.konstantin.core.di.CoreComponentHolder
-import od.konstantin.core.util.extensions.viewBindings
 import od.konstantin.feature_welcome.R
 import od.konstantin.feature_welcome.databinding.FragmentWelcomeBinding
 import od.konstantin.feature_welcome.di.DaggerWelcomeComponent
+import od.konstantin.feature_welcome.di.WelcomeModule
 import od.konstantin.feature_welcome.utils.setOnExamLanguageSelectListener
 import od.konstantin.feature_welcome.utils.setOnExamSelectListener
 import od.konstantin.feature_welcome.utils.setOnSpecializationSelectListener
-import javax.inject.Inject
+import od.konstantin.krok.ui.base.BaseFragment
+import od.konstantin.krok.ui.base.screenstate.EmptyState
+import od.konstantin.krok.ui.extensions.viewBindings
 
-class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
-
-    @Inject
-    lateinit var viewModelFactory: WelcomeFragmentViewModelFactory
-
-    private val viewModel: WelcomeFragmentViewModel by viewModels {
-        viewModelFactory
-    }
+class WelcomeFragment :
+    BaseFragment<EmptyState, WelcomeCommand, WelcomeFragmentViewModel>(
+        R.layout.fragment_welcome
+    ) {
 
     private val binding by viewBindings { FragmentWelcomeBinding.bind(it) }
 
-    override fun onAttach(context: Context) {
-        DaggerWelcomeComponent.factory().create(CoreComponentHolder.coreComponent)
-            .inject(this)
-
-        super.onAttach(context)
+    override fun onInitDependencyInjection() {
+        DaggerWelcomeComponent.factory().create(
+            CoreComponentHolder.coreComponent,
+            WelcomeModule(this)
+        ).inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initObservers()
         initListeners()
-    }
-
-    private fun initObservers() {
-        lifecycleScope.launchWhenCreated {
-            viewModel.eventsFlow.collect { event ->
-                when (event) {
-                    WelcomeFragmentViewModel.Event.NavigateToMainScreen -> navigateToMainScreen()
-                    WelcomeFragmentViewModel.Event.ErrorNeedSelectSpecialization -> {
-                        showToast(getString(R.string.need_select_specialization))
-                    }
-                    WelcomeFragmentViewModel.Event.ErrorNeedSelectExam -> {
-                        showToast(getString(R.string.need_select_exam))
-                    }
-                    WelcomeFragmentViewModel.Event.ErrorNeedSelectExamLanguage -> {
-                        showToast(getString(R.string.need_select_exam_language))
-                    }
-                }
-            }
-        }
     }
 
     private fun initListeners() {
@@ -75,6 +48,21 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
             }
             setOnExamLanguageSelectListener {
                 viewModel.chooseExamLanguage(it)
+            }
+        }
+    }
+
+    override fun executeCommand(command: WelcomeCommand) {
+        when (command) {
+            WelcomeCommand.NavigateToMainScreen -> navigateToMainScreen()
+            WelcomeCommand.ErrorNeedSelectSpecialization -> {
+                showToast(getString(R.string.need_select_specialization))
+            }
+            WelcomeCommand.ErrorNeedSelectExam -> {
+                showToast(getString(R.string.need_select_exam))
+            }
+            WelcomeCommand.ErrorNeedSelectExamLanguage -> {
+                showToast(getString(R.string.need_select_exam_language))
             }
         }
     }

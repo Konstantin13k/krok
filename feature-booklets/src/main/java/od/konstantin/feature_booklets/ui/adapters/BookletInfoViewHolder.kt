@@ -3,10 +3,10 @@ package od.konstantin.feature_booklets.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import od.konstantin.core.util.extensions.context
 import od.konstantin.feature_booklets.R
 import od.konstantin.feature_booklets.data.models.BookletInfo
 import od.konstantin.feature_booklets.databinding.ViewHolderBookletInfoBinding
+import od.konstantin.krok.ui.extensions.context
 
 class BookletInfoViewHolder private constructor(private val binding: ViewHolderBookletInfoBinding) :
     RecyclerView.ViewHolder(binding.root) {
