@@ -1,7 +1,7 @@
 package od.konstantin.krok
 
 import android.app.Application
-import od.konstantin.core.di.CoreComponentHolder
+import od.konstantin.core.impl.di.CoreComponentHolder
 
 class KrokApp : Application() {
 

@@ -3,7 +3,7 @@ package od.konstantin.feature_home.ui
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.fragment.findNavController
-import od.konstantin.core.di.CoreComponentHolder
+import od.konstantin.core.impl.di.CoreComponentHolder
 import od.konstantin.feature_home.R
 import od.konstantin.feature_home.databinding.FragmentHomeBinding
 import od.konstantin.feature_home.di.DaggerHomeComponent
@@ -16,6 +16,10 @@ import od.konstantin.krok.ui.extensions.viewBindings
 class HomeFragment : BaseFragment<EmptyState, HomeCommand, HomeViewModel>(R.layout.fragment_home) {
 
     private val binding: FragmentHomeBinding by viewBindings { FragmentHomeBinding.bind(it) }
+
+    override val viewModel: HomeViewModel by lazy {
+        TODO()
+    }
 
     override fun onInitDependencyInjection() {
         DaggerHomeComponent.factory().create(

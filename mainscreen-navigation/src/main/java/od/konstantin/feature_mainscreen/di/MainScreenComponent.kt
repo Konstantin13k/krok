@@ -1,8 +1,8 @@
 package od.konstantin.feature_mainscreen.di
 
 import dagger.Component
-import od.konstantin.core.di.CoreComponent
-import od.konstantin.core.di.FeatureScope
+import od.konstantin.core.impl.di.CoreComponent
+import od.konstantin.core.api.di.scopes.FeatureScope
 import od.konstantin.feature_mainscreen.ui.MainScreenFragment
 
 @FeatureScope

@@ -3,7 +3,7 @@ package od.konstantin.feature_mainscreen.ui
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.isVisible
-import od.konstantin.core.di.CoreComponentHolder
+import od.konstantin.core.impl.di.CoreComponentHolder
 import od.konstantin.feature_mainscreen.R
 import od.konstantin.feature_mainscreen.databinding.FragmentMainBinding
 import od.konstantin.feature_mainscreen.di.DaggerMainScreenComponent
@@ -19,6 +19,10 @@ class MainScreenFragment :
     ) {
 
     private val binding by viewBindings { FragmentMainBinding.bind(it) }
+
+    override val viewModel: MainScreenViewModel by lazy {
+        TODO()
+    }
 
     override fun onInitDependencyInjection() {
         DaggerMainScreenComponent.factory().create(

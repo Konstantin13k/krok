@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/bookletsFragment"
-        android:name="od.konstantin.feature_booklets.ui.BookletsFragment"
+        android:name="od.konstantin.feature_booklets.impl.ui.BookletsFragment"
         android:label="BookletsFragment" />
 
 </navigation>

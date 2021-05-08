@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import od.konstantin.core.di.CoreComponentHolder
+import od.konstantin.core.impl.di.CoreComponentHolder
 import od.konstantin.feature_welcome.R
 import od.konstantin.feature_welcome.databinding.FragmentWelcomeBinding
 import od.konstantin.feature_welcome.di.DaggerWelcomeComponent
@@ -22,6 +22,8 @@ class WelcomeFragment :
     ) {
 
     private val binding by viewBindings { FragmentWelcomeBinding.bind(it) }
+
+    override val viewModel: WelcomeFragmentViewModel = TODO()
 
     override fun onInitDependencyInjection() {
         DaggerWelcomeComponent.factory().create(

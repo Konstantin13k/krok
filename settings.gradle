@@ -1,3 +1,5 @@
+include ':module-injector'
+include ':common-network'
 include ':common-ui'
 include ':core-navigation'
 include ':feature-booklets'

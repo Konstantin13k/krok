@@ -1,0 +1,33 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply from: rootProject.file('dependencies.gradle')
+apply from: rootProject.file('default-config.gradle')
+
+dependencies {
+    implementation(project(":common-network"))
+    implementation(project(":core"))
+    implementation deps.kotlin.coroutines
+    implementation deps.kotlin.serialization
+    implementation deps.core_ktx
+    implementation deps.fragment_ktx
+    implementation deps.appcompat
+    implementation deps.material
+    implementation deps.constraintlayout
+    implementation deps.lifecycle.viewmodel
+    implementation deps.logging_interceptor
+
+    // Dagger
+    implementation deps.dagger.dagger
+    kapt deps.dagger.compiler
+
+    // Retrofit
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.kotlin_converter
+
+    testImplementation testDependencies
+    androidTestImplementation androidTestDependenvies
+}

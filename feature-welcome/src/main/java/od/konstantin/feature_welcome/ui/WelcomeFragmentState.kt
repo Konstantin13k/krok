@@ -1,8 +1,8 @@
 package od.konstantin.feature_welcome.ui
 
-import od.konstantin.core.exam.Category
-import od.konstantin.core.exam.Exam
-import od.konstantin.core.exam.ExamLanguage
+import od.konstantin.core.api.domain.models.Category
+import od.konstantin.core.api.domain.models.Exam
+import od.konstantin.core.api.domain.models.ExamLanguage
 import od.konstantin.krok.ui.base.screenstate.ScreenState
 
 sealed class WelcomeFragmentState : ScreenState {
