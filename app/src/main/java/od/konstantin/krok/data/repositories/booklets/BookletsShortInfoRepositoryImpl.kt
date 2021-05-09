@@ -8,6 +8,8 @@ import od.konstantin.core.domain.userprefs.exam
 import od.konstantin.core.domain.userprefs.examLang
 import od.konstantin.core.domain.userprefs.specialization
 import od.konstantin.core_network.data.booklets.services.BookletsInfoService
+import od.konstantin.core_network.data.safeApiCall
+import od.konstantin.core_network.domain.ResultWrapper
 import od.konstantin.krok.data.mappers.booklets.network.BookletShortInfoDtoMapper
 import od.konstantin.krok.domain.models.booklets.BookletShortInfo
 import od.konstantin.krok.domain.repositories.booklets.BookletsShortInfoRepository
@@ -21,13 +23,15 @@ class BookletsShortInfoRepositoryImpl @Inject constructor(
     private val ioDispatcher: CoroutineDispatcher
 ) : BookletsShortInfoRepository {
 
-    override suspend fun getBookletsShortInfo(): List<BookletShortInfo> =
+    override suspend fun getBookletsShortInfo(): ResultWrapper<List<BookletShortInfo>> =
         withContext(ioDispatcher) {
             val specialization = userPrefs.specialization
             val exam = userPrefs.exam
             val examLang = userPrefs.examLang
 
-            val bookletsInfo = bookletsService.getBookletsInfo(specialization, exam, examLang)
-            bookletsInfo.bookletsInfo.map(bookletShortInfoDtoMapper::map)
+            safeApiCall(ioDispatcher) {
+                val bookletsInfo = bookletsService.getBookletsInfo(specialization, exam, examLang)
+                bookletsInfo.bookletsInfo.map(bookletShortInfoDtoMapper::map)
+            }
         }
 }
