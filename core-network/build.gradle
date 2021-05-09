@@ -2,6 +2,7 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization'
     id 'dagger.hilt.android.plugin'
 }
 
@@ -15,10 +16,12 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 30
-    }
+        versionCode 1
+        versionName "1.0"
 
-    buildFeatures {
-        viewBinding = true
+        buildConfigField "String", "BASE_URL", krok_server_url
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -40,18 +43,22 @@ android {
 
 dependencies {
     implementation deps.kotlin.coroutines
-    implementation deps.lifecycle.lifecycle
-    implementation deps.lifecycle.viewmodel
+    implementation deps.kotlin.serialization
     implementation deps.core_ktx
-    implementation deps.material
+    implementation deps.logging_interceptor
 
     // Hilt
     implementation deps.hilt.hilt
     kapt deps.hilt.compiler
 
-    // Navigation
-    implementation deps.navigation.fragment
+    // Retrofit
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.kotlin_converter
 
     testImplementation testDependencies
     androidTestImplementation androidTestDependenvies
+}
+
+kapt {
+    correctErrorTypes true
 }

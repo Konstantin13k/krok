@@ -17,10 +17,6 @@ android {
         targetSdkVersion 30
     }
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -40,18 +36,21 @@ android {
 
 dependencies {
     implementation deps.kotlin.coroutines
-    implementation deps.lifecycle.lifecycle
-    implementation deps.lifecycle.viewmodel
     implementation deps.core_ktx
-    implementation deps.material
 
     // Hilt
     implementation deps.hilt.hilt
     kapt deps.hilt.compiler
 
-    // Navigation
-    implementation deps.navigation.fragment
+    // Room
+    implementation deps.room.room
+    implementation deps.room.ktx
+    kapt deps.room.compiler
 
     testImplementation testDependencies
     androidTestImplementation androidTestDependenvies
+}
+
+kapt {
+    correctErrorTypes true
 }

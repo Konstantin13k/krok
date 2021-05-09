@@ -18,6 +18,7 @@ versions.coil = "1.2.0"
 versions.logging_interceptor = "4.9.1"
 versions.dagger = "2.34.1"
 versions.hilt = hilt_version
+versions.hilt_navigation = "1.0.0"
 versions.room = "2.2.6"
 
 deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
@@ -42,7 +43,6 @@ deps.lifecycle = lifecycle
 def navigation = [:]
 navigation.fragment = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
 navigation.ui = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
-navigation.feature_module = "androidx.navigation:navigation-dynamic-features-fragment:$versions.navigation"
 deps.navigation = navigation
 
 def retrofit = [:]
@@ -58,6 +58,8 @@ deps.dagger = dagger
 def hilt = [:]
 hilt.hilt = "com.google.dagger:hilt-android:$versions.hilt"
 hilt.compiler = "com.google.dagger:hilt-compiler:$versions.hilt"
+hilt.hilt_navigation = "androidx.hilt:hilt-navigation-fragment:$versions.hilt_navigation"
+deps.hilt = hilt
 
 def room = [:]
 room.room = "androidx.room:room-runtime:$versions.room"
