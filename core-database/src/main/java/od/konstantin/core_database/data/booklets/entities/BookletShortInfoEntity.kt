@@ -13,6 +13,8 @@ data class BookletShortInfoEntity(
     val year: Int,
     @ColumnInfo(name = "questions")
     val questions: Int,
-    @ColumnInfo(name = "is_eng_sub_booklet")
-    val isEngSubBooklet: Boolean
+    @ColumnInfo(name = "is_sub_booklet")
+    val isSubBooklet: Boolean,
+    @ColumnInfo(name = "sub_booklet_id")
+    val subBookletId: String? = null,
 )

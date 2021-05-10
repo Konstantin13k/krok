@@ -11,6 +11,6 @@ data class BookletShortInfoDto(
     val year: Int,
     @SerialName("questions")
     val questions: Int,
-    @SerialName("isEngSubBooklet")
-    val hasEngSubBooklet: Boolean
+    @SerialName("sub_booklet_info")
+    val subBookletInfo: BookletShortInfoDto? = null
 )

@@ -8,6 +8,7 @@ import od.konstantin.core.domain.userprefs.exam
 import od.konstantin.core.domain.userprefs.examLang
 import od.konstantin.core.domain.userprefs.specialization
 import od.konstantin.core_database.data.booklets.dao.BookletsInfoDao
+import od.konstantin.core_database.data.booklets.entities.BookletShortInfoEntity
 import od.konstantin.core_network.data.booklets.services.BookletsInfoService
 import od.konstantin.core_network.data.safeApiCall
 import od.konstantin.core_network.domain.ResultWrapper
@@ -54,6 +55,23 @@ class BookletsShortInfoRepositoryImpl @Inject constructor(
     }
 
     private suspend fun saveBookletsInfoToDatabase(bookletsInfo: List<BookletShortInfo>) {
-        bookletsDao.insertBookletsInfo(bookletsInfo.map(bookletShortInfoEntityMapper::mapToEntity))
+        val bookletInfoEntities = mutableListOf<BookletShortInfoEntity>()
+        bookletsInfo.forEach { bookletInfo ->
+            bookletInfoEntities.add(
+                bookletShortInfoEntityMapper.mapToEntity(
+                    bookletInfo,
+                    isSubBooklet = false
+                )
+            )
+            bookletInfo.subBookletInfo?.let { subBookletInfo ->
+                bookletInfoEntities.add(
+                    bookletShortInfoEntityMapper.mapToEntity(
+                        subBookletInfo,
+                        isSubBooklet = true
+                    )
+                )
+            }
+        }
+        bookletsDao.insertBookletsInfo(bookletInfoEntities)
     }
 }

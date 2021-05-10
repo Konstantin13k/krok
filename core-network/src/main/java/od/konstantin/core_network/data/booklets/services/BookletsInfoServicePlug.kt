@@ -16,11 +16,11 @@ class BookletsInfoServicePlug : BookletsInfoService {
         Log.d("BOOKLETS_INFO", "booklets info service call!")
         return BookletsInfoResponse(
             bookletsInfo = arrayListOf(
-                BookletShortInfoDto("id_1", 2020, 150, true),
-                BookletShortInfoDto("id_2", 2019, 150, true),
-                BookletShortInfoDto("id_3", 2018, 200, false),
-                BookletShortInfoDto("id_4", 2017, 200, false),
-                BookletShortInfoDto("id_5", 2016, 200, false),
+                BookletShortInfoDto("id_1", 2020, 150, BookletShortInfoDto("sub_id_1", 2020, 30)),
+                BookletShortInfoDto("id_2", 2019, 150, BookletShortInfoDto("sub_id_2", 2020, 30)),
+                BookletShortInfoDto("id_3", 2018, 200),
+                BookletShortInfoDto("id_4", 2017, 200),
+                BookletShortInfoDto("id_5", 2016, 200),
             ),
             amount = 5
         )
