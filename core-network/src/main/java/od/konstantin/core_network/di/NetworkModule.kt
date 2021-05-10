@@ -9,6 +9,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import od.konstantin.core_network.BuildConfig
 import od.konstantin.core_network.data.booklets.services.BookletsInfoService
+import od.konstantin.core_network.data.booklets.services.BookletsInfoServicePlug
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
@@ -59,6 +60,10 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideBookletsInfoService(retrofit: Retrofit): BookletsInfoService {
-        return retrofit.create(BookletsInfoService::class.java)
+        return if (BuildConfig.DEBUG) {
+            BookletsInfoServicePlug()
+        } else {
+            retrofit.create(BookletsInfoService::class.java)
+        }
     }
 }

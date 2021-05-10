@@ -69,6 +69,10 @@ dependencies {
     implementation deps.retrofit.retrofit
     implementation deps.retrofit.kotlin_converter
 
+    // Room
+    implementation deps.room.room
+    implementation deps.room.ktx
+
     testImplementation testDependencies
     androidTestImplementation androidTestDependenvies
 }

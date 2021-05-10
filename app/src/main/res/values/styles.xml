@@ -23,4 +23,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="textAllCaps">false</item>
     </style>
+
+    <style name="progress_bar_style" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="colorSecondary">@color/green_600</item>
+    </style>
 </resources>
