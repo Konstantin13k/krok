@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id 'androidx.navigation.safeargs.kotlin'
 }
 
 apply from: rootProject.file('dependencies.gradle')
@@ -39,15 +42,37 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    dynamicFeatures = []
 }
 
 dependencies {
-    implementation(project(":common-ui"))
     implementation(project(":core"))
-    implementation(project(":core-navigation"))
-    implementation(project(":feature-welcome"))
-    implementation(project(':mainscreen-navigation'))
-    implementation(project(":feature-home"))
-    implementation(project(":feature-booklets"))
+    implementation(project(":core-network"))
+    implementation(project(":core-database"))
+
+    implementation deps.kotlin.coroutines
+    implementation deps.core_ktx
+    implementation deps.fragment_ktx
+    implementation deps.appcompat
+    implementation deps.material
+    implementation deps.constraintlayout
+
+    // Navigation
+    implementation deps.navigation.fragment
+    implementation deps.navigation.ui
+
+    // Hilt
+    implementation deps.hilt.hilt
+    kapt deps.hilt.compiler
+    implementation deps.hilt.hilt_navigation
+
+    // Retrofit
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.kotlin_converter
+
+    testImplementation testDependencies
+    androidTestImplementation androidTestDependenvies
+}
+
+kapt {
+    correctErrorTypes true
 }

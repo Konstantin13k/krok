@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="booklet_title">Booklet %d</string>
-    <string name="booklet_questions">%d questions</string>
-</resources>

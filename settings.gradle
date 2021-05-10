@@ -1,11 +1,5 @@
-include ':module-injector'
-include ':common-network'
-include ':common-ui'
-include ':core-navigation'
-include ':feature-booklets'
-include ':mainscreen-navigation'
-include ':feature-home'
-include ':feature-welcome'
 include ':core'
 include ':app'
 rootProject.name = "Krok"
+include ':core-network'
+include ':core-database'
