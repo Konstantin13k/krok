@@ -1,6 +1,5 @@
-include ':feature-mainscreen'
-include ':feature-home'
-include ':feature-welcome'
 include ':core'
 include ':app'
 rootProject.name = "Krok"
+include ':core-network'
+include ':core-database'

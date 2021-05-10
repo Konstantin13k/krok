@@ -4,20 +4,25 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import od.konstantin.core.RootGraphDirections
-import od.konstantin.core.di.CoreComponentHolder
-import od.konstantin.core.prefs.isNeedToFillProfile
+import dagger.hilt.android.AndroidEntryPoint
+import od.konstantin.core.domain.userprefs.UserPrefs
+import od.konstantin.core.domain.userprefs.isNeedToFillProfile
 import od.konstantin.krok.R
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class SplashFragment : Fragment(R.layout.fragment_splash) {
+
+    @Inject
+    lateinit var userPreferences: UserPrefs
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (CoreComponentHolder.coreComponent.provideUserPrefs().isNeedToFillProfile()) {
-            findNavController().navigate(RootGraphDirections.actionWelcomeFlow())
+        if (userPreferences.isNeedToFillProfile()) {
+            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToWelcomeFragment())
         } else {
-            findNavController().navigate(RootGraphDirections.actionMainscreenFlow())
+            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToMainScreenFragment())
         }
     }
 }

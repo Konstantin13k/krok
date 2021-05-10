@@ -3,14 +3,17 @@ package od.konstantin.core.di.modules
 import android.content.Context
 import dagger.Module
 import dagger.Provides
-import od.konstantin.core.di.AppScope
-import od.konstantin.core.prefs.UserPrefs
-import od.konstantin.core.prefs.UserPrefsImpl
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
+import od.konstantin.core.data.userprefs.UserPrefsImpl
+import od.konstantin.core.domain.userprefs.UserPrefs
+import javax.inject.Singleton
 
 @Module
-class UserPrefsModule {
+@InstallIn(SingletonComponent::class)
+internal class UserPrefsModule {
 
-    @AppScope
+    @Singleton
     @Provides
     fun provideUserPrefs(context: Context): UserPrefs {
         return UserPrefsImpl(context)

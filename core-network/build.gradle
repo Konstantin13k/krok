@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+    id 'dagger.hilt.android.plugin'
+}
+
+apply from: rootProject.file('dependencies.gradle')
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+    kotlinOptions.useIR = true
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField "String", "BASE_URL", krok_server_url
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation deps.kotlin.coroutines
+    implementation deps.kotlin.serialization
+    implementation deps.core_ktx
+    implementation deps.logging_interceptor
+
+    // Hilt
+    implementation deps.hilt.hilt
+    kapt deps.hilt.compiler
+
+    // Retrofit
+    implementation deps.retrofit.retrofit
+    implementation deps.retrofit.kotlin_converter
+
+    testImplementation testDependencies
+    androidTestImplementation androidTestDependenvies
+}
+
+kapt {
+    correctErrorTypes true
+}
