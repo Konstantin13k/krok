@@ -1,6 +1,7 @@
 package od.konstantin.core.ui.extensions
 
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
@@ -45,4 +46,12 @@ fun <VM : ViewModel> Fragment.viewModel(
     } else {
         ViewModelProvider(this, viewModelProviderFactory).get(factoryViewModel::class.java)
     }
+}
+
+fun Fragment.showShortToast(text: String) {
+    Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
+}
+
+fun Fragment.showLongToast(text: String) {
+    Toast.makeText(requireContext(), text, Toast.LENGTH_LONG).show()
 }

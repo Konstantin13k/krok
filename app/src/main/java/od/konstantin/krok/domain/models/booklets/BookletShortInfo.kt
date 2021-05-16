@@ -5,4 +5,7 @@ data class BookletShortInfo(
     val year: Int,
     val questions: Int,
     val subBookletInfo: BookletShortInfo? = null
-)
+) {
+    val hasSubBooklet: Boolean
+        get() = subBookletInfo != null
+}

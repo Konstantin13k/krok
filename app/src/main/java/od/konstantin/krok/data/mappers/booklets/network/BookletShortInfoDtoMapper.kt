@@ -11,6 +11,12 @@ class BookletShortInfoDtoMapper @Inject constructor() {
             bookletId = info.bookletId,
             year = info.year,
             questions = info.questions,
-            subBookletInfo = null,
+            subBookletInfo = info.subBookletInfo?.let { subBooklet ->
+                BookletShortInfo(
+                    bookletId = subBooklet.bookletId,
+                    year = subBooklet.year,
+                    questions = subBooklet.questions,
+                )
+            },
         )
 }

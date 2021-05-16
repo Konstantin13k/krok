@@ -4,16 +4,19 @@ import android.os.Bundle
 import android.view.View
 import dagger.hilt.android.AndroidEntryPoint
 import od.konstantin.core.presentation.command.EmptyCommand
-import od.konstantin.core.presentation.screenstate.EmptyState
 import od.konstantin.core.ui.BaseFragment
+import od.konstantin.core.ui.extensions.hide
+import od.konstantin.core.ui.extensions.show
 import od.konstantin.core.ui.extensions.viewBindings
 import od.konstantin.krok.R
 import od.konstantin.krok.databinding.FragmentBookletsBinding
+import od.konstantin.krok.domain.models.booklets.BookletShortInfo
 import od.konstantin.krok.presentation.booklets.BookletsFragmentViewModel
+import od.konstantin.krok.presentation.booklets.BookletsScreenState
 import od.konstantin.krok.ui.booklets.adapters.BookletInfoAdapter
 
 @AndroidEntryPoint
-class BookletsFragment : BaseFragment<EmptyState, EmptyCommand, BookletsFragmentViewModel>(
+class BookletsFragment : BaseFragment<BookletsScreenState, EmptyCommand, BookletsFragmentViewModel>(
     R.layout.fragment_booklets,
     BookletsFragmentViewModel::class.java
 ) {
@@ -22,10 +25,40 @@ class BookletsFragment : BaseFragment<EmptyState, EmptyCommand, BookletsFragment
         FragmentBookletsBinding.bind(it)
     }
 
+    private val bookletInfoAdapter by lazy { BookletInfoAdapter() }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val adapter = BookletInfoAdapter()
-        binding.bookletsInfo.adapter = adapter
+        binding.bookletsInfo.adapter = bookletInfoAdapter
+
+        binding.retryButton.setOnClickListener {
+            viewModel.onRetryLoadBookletsInfo()
+        }
+    }
+
+    override fun onRenderView(state: BookletsScreenState) {
+        when (state) {
+            is BookletsScreenState.BookletsInfo -> {
+                binding.bookletsLoadingBar.hide()
+                binding.bookletsInfo.show()
+                showBookletsInfo(state.bookletsInfo)
+            }
+            is BookletsScreenState.Loading -> {
+                binding.networkErrorText.hide()
+                binding.bookletsInfo.hide()
+                binding.retryButton.hide()
+                binding.bookletsLoadingBar.show()
+            }
+            is BookletsScreenState.NetworkError -> {
+                binding.bookletsLoadingBar.hide()
+                binding.networkErrorText.show()
+                binding.retryButton.show()
+            }
+        }
+    }
+
+    private fun showBookletsInfo(bookletsInfo: List<BookletShortInfo>) {
+        bookletInfoAdapter.submitList(bookletsInfo)
     }
 }
