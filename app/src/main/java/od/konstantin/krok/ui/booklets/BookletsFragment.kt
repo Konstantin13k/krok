@@ -6,7 +6,8 @@ import androidx.core.view.isVisible
 import dagger.hilt.android.AndroidEntryPoint
 import od.konstantin.core.presentation.command.EmptyCommand
 import od.konstantin.core.ui.BaseFragment
-import od.konstantin.core.ui.extensions.showLongToast
+import od.konstantin.core.ui.extensions.hide
+import od.konstantin.core.ui.extensions.show
 import od.konstantin.core.ui.extensions.viewBindings
 import od.konstantin.krok.R
 import od.konstantin.krok.databinding.FragmentBookletsBinding
@@ -31,22 +32,31 @@ class BookletsFragment : BaseFragment<BookletsScreenState, EmptyCommand, Booklet
         super.onViewCreated(view, savedInstanceState)
 
         binding.bookletsInfo.adapter = bookletInfoAdapter
+
+        binding.retryButton.setOnClickListener {
+            viewModel.onRetryLoadBookletsInfo()
+        }
     }
 
     override fun onRenderView(state: BookletsScreenState) {
         when (state) {
-            is BookletsScreenState.Loading -> {
-                binding.bookletsInfo.isVisible = false
-                binding.bookletsLoadingBar.show()
-            }
             is BookletsScreenState.BookletsInfo -> {
                 binding.bookletsLoadingBar.hide()
+                binding.networkErrorText.hide()
+                binding.retryButton.hide()
                 binding.bookletsInfo.isVisible = true
                 showBookletsInfo(state.bookletsInfo)
             }
+            is BookletsScreenState.Loading -> {
+                binding.bookletsInfo.isVisible = false
+                binding.bookletsLoadingBar.show()
+                binding.networkErrorText.hide()
+                binding.retryButton.hide()
+            }
             is BookletsScreenState.NetworkError -> {
+                binding.networkErrorText.show()
                 binding.bookletsLoadingBar.hide()
-                showLongToast(getString(R.string.network_error))
+                binding.retryButton.show()
             }
         }
     }

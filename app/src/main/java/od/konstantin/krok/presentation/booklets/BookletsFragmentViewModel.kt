@@ -30,4 +30,9 @@ class BookletsFragmentViewModel @Inject constructor(
             }
         }
     }
+
+    fun onRetryLoadBookletsInfo() {
+        updateScreenState(BookletsScreenState.Loading)
+        loadBookletsInfo()
+    }
 }
