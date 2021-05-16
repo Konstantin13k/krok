@@ -24,25 +24,16 @@
 
     <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/booklets_loading_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="gone"
-        app:indicatorColor="@color/green_600"
+        style="@style/progress_bar_style"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:trackCornerRadius="1dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/network_error_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/network_error_text_style"
         android:text="@string/network_error"
-        android:textColor="@color/dark_grey_description"
-        android:textSize="24sp"
-        android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,14 +43,8 @@
 
     <Button
         android:id="@+id/retry_button"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/retry_button_margin_horizontal"
-        android:layout_marginEnd="@dimen/retry_button_margin_horizontal"
-        android:layout_marginBottom="@dimen/retry_button_margin_bottom"
+        style="@style/retry_button_style"
         android:text="@string/retry_button_text"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

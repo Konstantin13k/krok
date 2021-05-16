@@ -2,7 +2,6 @@ package od.konstantin.krok.ui.booklets
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.view.isVisible
 import dagger.hilt.android.AndroidEntryPoint
 import od.konstantin.core.presentation.command.EmptyCommand
 import od.konstantin.core.ui.BaseFragment
@@ -42,20 +41,18 @@ class BookletsFragment : BaseFragment<BookletsScreenState, EmptyCommand, Booklet
         when (state) {
             is BookletsScreenState.BookletsInfo -> {
                 binding.bookletsLoadingBar.hide()
-                binding.networkErrorText.hide()
-                binding.retryButton.hide()
-                binding.bookletsInfo.isVisible = true
+                binding.bookletsInfo.show()
                 showBookletsInfo(state.bookletsInfo)
             }
             is BookletsScreenState.Loading -> {
-                binding.bookletsInfo.isVisible = false
-                binding.bookletsLoadingBar.show()
                 binding.networkErrorText.hide()
+                binding.bookletsInfo.hide()
                 binding.retryButton.hide()
+                binding.bookletsLoadingBar.show()
             }
             is BookletsScreenState.NetworkError -> {
-                binding.networkErrorText.show()
                 binding.bookletsLoadingBar.hide()
+                binding.networkErrorText.show()
                 binding.retryButton.show()
             }
         }
