@@ -43,4 +43,7 @@
     <string name="booklet_title">Booklet %d</string>
     <string name="booklet_questions">%d questions</string>
     <string name="sub_booklet_title">Eng SubBooklet</string>
+
+
+    <string name="network_error">Network Error</string>
 </resources>

@@ -6,6 +6,7 @@ import androidx.core.view.isVisible
 import dagger.hilt.android.AndroidEntryPoint
 import od.konstantin.core.presentation.command.EmptyCommand
 import od.konstantin.core.ui.BaseFragment
+import od.konstantin.core.ui.extensions.showLongToast
 import od.konstantin.core.ui.extensions.viewBindings
 import od.konstantin.krok.R
 import od.konstantin.krok.databinding.FragmentBookletsBinding
@@ -45,6 +46,7 @@ class BookletsFragment : BaseFragment<BookletsScreenState, EmptyCommand, Booklet
             }
             is BookletsScreenState.NetworkError -> {
                 binding.bookletsLoadingBar.hide()
+                showLongToast(getString(R.string.network_error))
             }
         }
     }
